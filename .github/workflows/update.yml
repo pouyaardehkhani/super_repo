@@ -28,8 +28,10 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
+          git pull origin master --rebase
           git add super_subscription.txt
           git diff --cached --quiet || git commit -m "Update super_subscription.txt"
           git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
           git push origin HEAD
+
 
